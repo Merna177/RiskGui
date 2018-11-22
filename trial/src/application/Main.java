@@ -21,6 +21,9 @@ public class Main extends Application {
 		this.primaryStage=primaryStage;
 		this.primaryStage.setTitle("RISK");
 		ShowMainView();		
+		Scene scene = new Scene(mainLayOut,600,400);
+	   this.primaryStage.setScene(scene);
+	   this.primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
