@@ -16,8 +16,7 @@ public class SampleController {
 	    private Button playingButton;
     @FXML
     void simulationClicked(ActionEvent event) {
-    	playingButton.setVisible(false);
-               
+            Main.player1Simulation();
     }	
     
 }

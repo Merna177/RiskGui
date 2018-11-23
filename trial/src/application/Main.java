@@ -13,16 +13,17 @@ import javafx.scene.layout.Pane;
 
 public class Main extends Application {
 	private Stage primaryStage;
-	private Pane mainLayOut ;
+	private static BorderPane mainLayOut ;
 	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 		this.primaryStage=primaryStage;
 		this.primaryStage.setTitle("RISK");
-		ShowMainView();		
+		ShowMainView();	
 		Scene scene = new Scene(mainLayOut,600,400);
 	   this.primaryStage.setScene(scene);
+	   this.primaryStage.setResizable(false);
 	   this.primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -32,13 +33,25 @@ public class Main extends Application {
 		FXMLLoader loader= new FXMLLoader();
 		loader.setLocation(Main.class.getResource("Sample.fxml"));
 		try {
-			mainLayOut = loader.load();
+			mainLayOut.getChildren().add(loader.load());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
+	public static void player1Simulation() {
+		FXMLLoader loader1 = new FXMLLoader();
+		loader1.setLocation(Main.class.getResource("AgentChoice.fxml"));
+		try {
+			mainLayOut.getChildren().add(loader1.load());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 	public static void main(String[] args) {
 		launch(args);
